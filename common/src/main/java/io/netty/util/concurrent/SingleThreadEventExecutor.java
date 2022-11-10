@@ -853,6 +853,9 @@ public abstract class SingleThreadEventExecutor extends AbstractScheduledEventEx
             }
         }
 
+        //如果有任务被加进来，并且这个任务不是LazyRunnable，则需要在阻塞队列里面添加一个wakeUp任务
+        // 这个任务是一个静态变量runnable，里面什么都没做，只是用来唤醒等待任务的线程
+        //NioEventLoop重写了该方法
         if (!addTaskWakesUp && immediate) {
             wakeup(inEventLoop);
         }

@@ -19,6 +19,9 @@ import io.netty.util.IntSupplier;
 
 /**
  * Default select strategy.
+ * 默认的选择器执行策略
+ * 如果有任务，则直接将返回结果委派给传进来的提供int返回结果的提供者
+ * 否则就返回需要选择器选择的常量{@link SelectStrategy#SELECT}
  */
 final class DefaultSelectStrategy implements SelectStrategy {
     static final SelectStrategy INSTANCE = new DefaultSelectStrategy();

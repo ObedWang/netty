@@ -21,6 +21,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**
+ * 一个专门针对selector的selectorKey做的优化，使add（）方法的时间复杂度从O(nlogn)降低到O(1)
+ */
 final class SelectedSelectionKeySet extends AbstractSet<SelectionKey> {
 
     SelectionKey[] keys;
